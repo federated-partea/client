@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Partea Client</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="run.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script src="css/bulma-steps/dist/bulma-steps.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+
+<body>
+<section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10-tablet is-8-desktop is-6-widescreen">
+                    <div class="box">
+                        <img src="images/partea_menu_logo.png" alt="Partea_Logo" width=50%>
+                        <progress id="progress-bar" class="progress is-large is-info" max="100" value="0"></progress>
+                        <button onclick="reset(); return false" id="reset-button"
+                                class="button is-medium is-danger center is-hidden">Reset
+                        </button>
+                        <p id="info-label" class="label is-info">Waiting for other participants and project start.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
