@@ -1,5 +1,7 @@
 # Partea - Privacy-AwaRe Time-to-Event Analysis
 
+All repositories are available on GitHub under [https://github.com/federated-partea](https://github.com/federated-partea)
+
 ## 1. System requirements
 
 - MacOS Monterey 12.2.1 and Ubuntu 20.04
@@ -16,12 +18,12 @@
     1. macOS: Double-click on partea.app to start the client. The first time, you might need to run it
        with `control + click`.
     2. Ubuntu: Run the executable in your terminal with `./partea`
-5. The Partea Server and Partea Webapp are deployt at the servers of the Technical University Munich and do not need to
+5. The Partea Server and Partea Webapp are deployed at the servers of the Technical University Munich and do not need to
    be installed locally.
 
 ## 3. Demo
 
-A [getting started tutorial](https://exbio.wzw.tum.de/partea/how-to) is availble on the Partea website.
+A [getting started tutorial](https://exbio.wzw.tum.de/partea/how-to) is available on the Partea website.
 
 ### A. Study coordinator initializes the project
 
