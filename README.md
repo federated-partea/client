@@ -8,8 +8,8 @@
 ## 2. Installation Guide
 
 1. [Download](https://exbio.wzw.tum.de/partea/how-to#participants) the client software.
-   1. [macOS](https://exbio.wzw.tum.de/partea/assets/executables/partea_macos.zip) the client software.
-   2. [ubuntu](https://exbio.wzw.tum.de/partea/assets/executables/partea_ubuntu.tar.gz) the client software.
+   1. [macOS](https://exbio.wzw.tum.de/partea/assets/executables/partea_macos.zip)
+   2. [ubuntu](https://exbio.wzw.tum.de/partea/assets/executables/partea_ubuntu.tar.gz)
 2. **Unzip** the archive.
 3. If you do not have Google Chrome installed already, please [Download](https://www.google.com/chrome/) and install it.
 4. Run the executable file
