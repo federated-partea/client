@@ -1,0 +1,12 @@
+.idea/
+venv/
+dist/
+build/
+data/
+test.py
+test_cph.py
+*.pyc
+
+*pycache*
+setup.cfg
+.DS_Store
