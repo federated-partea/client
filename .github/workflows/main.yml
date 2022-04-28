@@ -21,8 +21,8 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: name-of-artifact
-        path: src/dist/windows
+        name: partea-windows
+        path: dist/windows
 
     - uses: actions/checkout@v2
 
@@ -33,5 +33,11 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: name-of-artifact
-        path: src/dist/linux
+        name: partea-ubuntu
+        path: dist/linux
+        
+    - name: Package MacOS Application
+      uses: actions/upload-artifact@v2
+      with:
+        name: partea-ubuntu
+        path: dist/macos
