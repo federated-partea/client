@@ -31,10 +31,28 @@ function setPath(r) {
     document.getElementById('run-button').disabled = false;
 }
 
-function prepare() {
+function run() {
+    window.location = "run.html";
+}
+
+function preprocess() {
     window.localStorage.setItem('durationCol', document.getElementById('durationCol').value);
     window.localStorage.setItem('eventCol', document.getElementById('eventCol').value);
     window.localStorage.setItem('condCol', document.getElementById('condCol').value);
     window.localStorage.setItem('separator', document.getElementById('separator').value);
-    window.location = "run.html";
+    let filePath = window.localStorage.getItem('filePath')
+    let durationCol = window.localStorage.getItem('durationCol')
+    let eventCol = window.localStorage.getItem('eventCol')
+    let sep = window.localStorage.getItem('separator')
+    let categoryCol = window.localStorage.getItem('condCol')
+    let method = window.localStorage.getItem('method')
+
+    eel.preprocess_data(filePath, method, durationCol, eventCol, categoryCol, sep, true)
 }
+
+function error(message) {
+    document.getElementById('error-label').innerHTML = message.fontcolor('red');
+}
+
+eel.expose(error);
+eel.expose(run);

@@ -38,7 +38,8 @@ http.mount("https://", adapter)
 http.mount("http://", adapter)
 
 headers = {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                  '(KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
 
 logger = logging.getLogger(__name__)
 
@@ -354,13 +355,16 @@ def smpc_regression_analysis(cph: CoxPHModel, token: str, server_url: str, min_t
             eel.finish()
 
 
-def preprocess_data(input_path: str, method: str, duration_col: str, event_col: str, cond_col: str, sep: str):
+@eel.expose
+def preprocess_data(input_path: str, method: str, duration_col: str, event_col: str, cond_col: str, sep: str,
+                    check=True):
     data = None
     cph = None
     if not os.path.exists(input_path):
         print("Path does not exist")
         exit()
     try:
+        print(input_path, method, duration_col, event_col, cond_col, sep, check)
         if method == "univariate":
             data = univariate.preprocess(duration_col, event_col, cond_col, input_path, sep)
         elif method == "cox":
@@ -372,11 +376,14 @@ def preprocess_data(input_path: str, method: str, duration_col: str, event_col: 
         if data is None:
             print("No data was found")
             raise Exception("No data found.")
-        return data, cph
+        if check:
+            eel.run()
+        else:
+            return data, cph
     except Exception as e:
         print(f'File could not be processed: {e}')
         traceback.print_exc()
-        exit()
+        eel.error(f'File could not be processed: {e}')
 
 
 @eel.expose
@@ -384,7 +391,7 @@ def run_project(method: str, server_url: str, token: str, category_col: str, fil
                 event_col: str, sep: str, client_id: int, min_time: float or None, max_time: float or None,
                 step_size: float or None,
                 smpc: bool):
-    data, cph = preprocess_data(file_path, method, duration_col, event_col, category_col, sep)
+    data, cph = preprocess_data(file_path, method, duration_col, event_col, category_col, sep, False)
     if min_time is not None:
         min_time = float(min_time)
     if max_time is not None:
