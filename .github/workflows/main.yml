@@ -14,6 +14,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Package Linux Application
+      uses: JackMcKew/pyinstaller-action-linux@main
+      with:
+        path: .
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: partea-ubuntu
+        path: dist/linux
+
     - name: Package Windows Application
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
@@ -24,18 +34,6 @@ jobs:
       with:
         name: partea-windows
         path: dist/windows
-
-    - uses: actions/checkout@v2
-
-    - name: Package Linux Application
-      uses: JackMcKew/pyinstaller-action-linux@main
-      with:
-        path: .
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: partea-ubuntu
-        path: dist/linux
         
     - name: Package MacOS Application
       uses: actions/upload-artifact@v2
