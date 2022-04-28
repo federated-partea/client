@@ -11,7 +11,6 @@ a = Analysis(
     datas=[('c:\Python37\lib\site-packages\eel\eel.js', 'eel'), ('frontend', 'frontend')],
     hiddenimports=['bottle_websocket'],
     hookspath=[],
-    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     win_no_prefer_redirects=False,
