@@ -1,6 +1,5 @@
 .idea/
 venv/
-dist/
 build/
 data/
 test.py
@@ -10,3 +9,4 @@ test_cph.py
 *pycache*
 setup.cfg
 .DS_Store
+partea.spec

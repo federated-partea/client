@@ -16,7 +16,7 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-10-tablet is-8-desktop is-6-widescreen">
-                    <form onsubmit="prepare(); return false" class="box">
+                    <form onsubmit="preprocess(); return false" class="box">
                         <img src="images/partea_menu_logo.png" alt="Partea_Logo" width=50% class="center">
                         <div class="columns">
                             <div class="column is-half">
@@ -98,6 +98,7 @@
                         <div class="field is-fullwidth">
                             <label class="label">Input Data <span class="tag is-success">NO RAW DATA WILL BE UPLOADED TO ANY SERVER. ONLY MODEL PARAMETERS ARE EXCHANGED.</span>
                             </label>
+                            <label class="label" id="error-label"></label>
                             <div class="control">
                                 <div class="file has-name is-fullwidth">
                                     <label class="file-label">
