@@ -8,7 +8,7 @@ a = Analysis(
     ['partea.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Users/spaethju/miniforge3/envs/partea-client/lib/python3.8/site-packages/eel/eel.js', 'eel'), ('frontend', 'frontend')],
+    datas=[('c:\\Python37\\lib\\site-packages\\eel\\eel.js', 'eel'), ('frontend', 'frontend')],
     hiddenimports=['bottle_websocket'],
     hookspath=[],
     runtime_hooks=[],
