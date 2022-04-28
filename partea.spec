@@ -11,7 +11,6 @@ a = Analysis(
     datas=[('/Users/spaethju/miniforge3/envs/partea-client/lib/python3.8/site-packages/eel/eel.js', 'eel'), ('frontend', 'frontend')],
     hiddenimports=['bottle_websocket'],
     hookspath=[],
-    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     win_no_prefer_redirects=False,
