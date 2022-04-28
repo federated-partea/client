@@ -6,3 +6,4 @@ pycryptodome
 pandas
 numpy
 eel
+pillow
