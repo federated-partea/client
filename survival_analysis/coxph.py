@@ -6,7 +6,6 @@ import pandas as pd
 
 
 class _BTree:
-
     """A simple balanced binary order statistic tree to help compute the concordance.
 
     When computing the concordance, we know all the values the tree will ever contain. That
@@ -49,7 +48,7 @@ class _BTree:
         last_full_row = int(np.log2(len(values) + 1) - 1)
         len_ragged_row = len(values) - (2 ** (last_full_row + 1) - 1)
         if len_ragged_row > 0:
-            bottom_row_ix = np.s_[: 2 * len_ragged_row : 2]
+            bottom_row_ix = np.s_[: 2 * len_ragged_row: 2]
             tree[-len_ragged_row:] = values[bottom_row_ix]
             values = np.delete(values, bottom_row_ix)
 
@@ -61,7 +60,7 @@ class _BTree:
         values_space = 2
         values_len = 2 ** last_full_row
         while values_start < len(values):
-            tree[values_len - 1 : 2 * values_len - 1] = values[values_start::values_space]
+            tree[values_len - 1: 2 * values_len - 1] = values[values_start::values_space]
             values_start += int(values_space / 2)
             values_space *= 2
             values_len = int(values_len / 2)
@@ -289,60 +288,6 @@ def _preprocess_scoring_data(event_times, predicted_scores, event_observed):
 
 
 def concordance_index(event_times, predicted_scores, event_observed=None) -> float:
-    """
-    Calculates the concordance index (C-index) between a series
-    of event times and a predicted score. The first is the real survival times from
-    the observational data, and the other is the predicted score from a model of some kind.
-
-    The c-index is the average of how often a model says X is greater than Y when, in the observed
-    data, X is indeed greater than Y. The c-index also handles how to handle censored values
-    (obviously, if Y is censored, it's hard to know if X is truly greater than Y).
-
-
-    The concordance index is a value between 0 and 1 where:
-
-    - 0.5 is the expected result from random predictions,
-    - 1.0 is perfect concordance and,
-    - 0.0 is perfect anti-concordance (multiply predictions with -1 to get 1.0)
-
-    The calculation internally done is
-
-    >>> (pairs_correct + 0.5 * pairs_tied) / admissable_pairs
-
-    where ``pairs_correct`` is the number of pairs s.t. if ``t_x > t_y``, then ``s_x > s_y``, pairs,
-    ``pairs_tied`` is the number of pairs where ``s_x = s_y``, and ``admissable_pairs`` is all possible pairs. The subtleties
-    are in how censored observation are handled (ex: not all pairs can be evaluated due to censoring).
-
-
-    Parameters
-    ----------
-    event_times: iterable
-         a length-n iterable of observed survival times.
-    predicted_scores: iterable
-        a length-n iterable of predicted scores - these could be survival times, or hazards, etc. See https://stats.stackexchange.com/questions/352183/use-median-survival-time-to-calculate-cph-c-statistic/352435#352435
-    event_observed: iterable, optional
-        a length-n iterable censoring flags, 1 if observed, 0 if not. Default None assumes all observed.
-
-    Returns
-    -------
-    c-index: float
-      a value between 0 and 1.
-
-    References
-    -----------
-    Harrell FE, Lee KL, Mark DB. Multivariable prognostic models: issues in
-    developing models, evaluating assumptions and adequacy, and measuring and
-    reducing errors. Statistics in Medicine 1996;15(4):361-87.
-
-    Examples
-    --------
-    .. code:: python
-
-        from lifelines.utils import concordance_index
-        cph = CoxPHFitter().fit(df, 'T', 'E')
-        concordance_index(df['T'], -cph.predict_partial_hazard(df), df['E'])
-
-    """
     event_times, predicted_scores, event_observed = _preprocess_scoring_data(event_times, predicted_scores,
                                                                              event_observed)
     num_correct, num_tied, num_pairs = _concordance_summary_statistics(event_times, predicted_scores, event_observed)
@@ -351,10 +296,6 @@ def concordance_index(event_times, predicted_scores, event_observed=None) -> flo
 
 
 def normalize(X, mean=None, std=None):
-    """
-    Normalize X. If mean OR std is None, normalizes
-    X to have mean 0 and std 1.
-    """
     if mean is None or std is None:
         mean = X.mean(0)
         std = X.std(0)
@@ -374,7 +315,8 @@ def check_low_var(df, prescript="", postscript=""):
         cols = str(list(df.columns[low_var]))
         warning_text = (
                 "%sColumn(s) %s have very low variance. \
-    This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting \
+    This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. "
+                "2) Try dropping this redundant column before fitting \
     if convergence fails.%s\n"
                 % (prescript, cols, postscript)
         )
@@ -386,7 +328,9 @@ def check_for_numeric_dtypes_or_raise(df):
                        dtype.name == "category" or dtype.kind not in "biuf"]
     if len(nonnumeric_cols) > 0:  # pylint: disable=len-as-condition
         raise TypeError(
-            "DataFrame contains nonnumeric columns: %s. Try 1) using pandas.get_dummies to convert the non-numeric column(s) to numerical data, 2) using it in stratification `strata=`, or 3) dropping the column(s)."
+            "DataFrame contains nonnumeric columns: %s. Try 1) using pandas.get_dummies to convert "
+            "the non-numeric column(s) to numerical data, 2) using it in stratification "
+            "`strata=`, or 3) dropping the column(s)."
             % nonnumeric_cols
         )
 
@@ -402,13 +346,15 @@ def check_nans_or_infs(df_or_array):
         infs = np.isinf(df_or_array)
     except TypeError:
         warning_text = (
-                """Attempting to convert an unexpected datatype '%s' to float. Suggestion: 1) use `lifelines.utils.datetimes_to_durations` to do conversions or 2) manually convert to floats/booleans."""
-                % df_or_array.dtype
+            """Attempting to convert an unexpected datatype '%s' to float. Suggestion: 1) 
+            use `lifelines.utils.datetimes_to_durations` to do conversions or 2)
+            manually convert to floats/booleans."""
+            % df_or_array.dtype
         )
         warnings.warn(warning_text, UserWarning)
         try:
             infs = np.isinf(df_or_array.astype(float))
-        except:
+        except Exception:
             raise TypeError("Wrong dtype '%s'." % df_or_array.dtype)
 
     if infs.any():

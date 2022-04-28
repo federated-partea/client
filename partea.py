@@ -38,7 +38,8 @@ http.mount("https://", adapter)
 http.mount("http://", adapter)
 
 headers = {
-    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                  '(KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'}
 
 logger = logging.getLogger(__name__)
 
@@ -355,7 +356,8 @@ def smpc_regression_analysis(cph: CoxPHModel, token: str, server_url: str, min_t
 
 
 @eel.expose
-def preprocess_data(input_path: str, method: str, duration_col: str, event_col: str, cond_col: str, sep: str, check=True):
+def preprocess_data(input_path: str, method: str, duration_col: str, event_col: str, cond_col: str, sep: str,
+                    check=True):
     data = None
     cph = None
     if not os.path.exists(input_path):
