@@ -20,10 +20,19 @@ jobs:
         path: .
         spec: partea_ubuntu.spec
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: partea-ubuntu
         path: dist/linux
+    
+    - uses: actions/download-artifact@v3
+      with:
+        name: partea-ubuntu
+        path: dist/linux
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: dist/linux
 
     - name: Package Windows Application
       uses: JackMcKew/pyinstaller-action-windows@main
@@ -31,13 +40,31 @@ jobs:
         path: .
         spec: partea_windows.spec
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: partea-windows
         path: dist/windows
         
-    - name: Package MacOS Application
-      uses: actions/upload-artifact@v2
+    - uses: actions/download-artifact@v3
       with:
-        name: partea-ubuntu
+        name: partea-windows
+        path: dist/windows
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: dist/windows
+        
+    - name: Package MacOS Application
+      uses: actions/upload-artifact@v3
+      with:
+        name: partea-macos
         path: dist/macos
+        
+    - uses: actions/download-artifact@v3
+      with:
+        name: partea-macos
+        path: dist/maxos
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: dist/macos
