@@ -8,7 +8,7 @@ a = Analysis(
     ['partea.py'],
     pathex=[],
     binaries=[],
-    datas=[('/root/.pyenv/versions/3.7.5/lib/python3.7/site-packageseel/eel.js', 'eel'), ('frontend', 'frontend')],
+    datas=[('/root/.pyenv/versions/3.7.5/lib/python3.7/site-packages/eel/eel.js', 'eel'), ('frontend', 'frontend')],
     hiddenimports=['bottle_websocket'],
     hookspath=[],
     runtime_hooks=[],
