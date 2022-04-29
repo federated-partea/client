@@ -7,12 +7,40 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
 
+  build-windows:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Package Windows Application
+      uses: JackMcKew/pyinstaller-action-windows@main
+      with:
+        path: .
+        spec: partea_windows.spec
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: partea-windows
+        path: dist/windows
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: partea-windows
+        path: dist/windows
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: dist/windows
+  
+  build-ubuntu:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    
+    - uses: actions/checkout@v3
 
     - name: Package Linux Application
       uses: JackMcKew/pyinstaller-action-linux@main
@@ -33,37 +61,6 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
       working-directory: dist/linux
-
-    - name: Package Windows Application
-      uses: JackMcKew/pyinstaller-action-windows@main
-      with:
-        path: .
-        spec: partea_windows.spec
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: partea-windows
-        path: dist/windows
-        
-    - uses: actions/download-artifact@v3
-      with:
-        name: partea-windows
-        path: dist/windows
-
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: dist/windows
-        
-    - name: Package MacOS Application
-      uses: actions/upload-artifact@v3
-      with:
-        name: partea-macos
-        path: dist/macos
-        
-    - uses: actions/download-artifact@v3
-      with:
-        name: partea-macos
-        path: dist/maxos
 
     - name: Display structure of downloaded files
       run: ls -R
