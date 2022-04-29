@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Package Windows Application
-      uses: JackMcKew/pyinstaller-action-windows@tkinter
+      uses: JackMcKew/pyinstaller-action-windows@main
       with:
         path: .
         spec: partea_windows.spec
