@@ -15,7 +15,7 @@ on:
 
 jobs:
 
-  build-windows:
+  build-linux:
     runs-on: ubuntu-latest
     
     steps:
