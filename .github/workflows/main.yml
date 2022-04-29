@@ -1,4 +1,4 @@
-name: Package Application with Pyinstaller
+name: Create Windows exe
 
 on:
   push:
@@ -34,30 +34,3 @@ jobs:
     - name: Display structure of downloaded files
       run: ls -R
       working-directory: dist/windows
-  
-  build-ubuntu:
-    runs-on: ubuntu-latest
-
-    steps:
-    
-    - uses: actions/checkout@v3
-
-    - name: Package Linux Application
-      uses: JackMcKew/pyinstaller-action-linux@main
-      with:
-        path: .
-        spec: partea_ubuntu.spec
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: partea-ubuntu
-        path: dist/linux
-    
-    - uses: actions/download-artifact@v3
-      with:
-        name: partea-ubuntu
-        path: dist/linux
-
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: dist/linux
