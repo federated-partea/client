@@ -10,8 +10,9 @@ All repositories are available on GitHub under [https://github.com/federated-par
 ## 2. Installation Guide
 
 1. [Download](https://exbio.wzw.tum.de/partea/how-to#participants) the client software.
-   1. [macOS](https://exbio.wzw.tum.de/partea/assets/executables/partea_macos.zip)
-   2. [ubuntu](https://exbio.wzw.tum.de/partea/assets/executables/partea_ubuntu.tar.gz)
+   1. [macOS](https://exbio.wzw.tum.de/partea/assets/executables/partea-macos.zip)
+   2. [linux](https://exbio.wzw.tum.de/partea/assets/executables/partea-linux.zip)
+   3. [windows](https://exbio.wzw.tum.de/partea/assets/executables/partea-windows.zip)
 2. **Unzip** the archive.
 3. If you do not have Google Chrome installed already, please [Download](https://www.google.com/chrome/) and install it.
 4. Run the executable file
