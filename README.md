@@ -9,7 +9,6 @@ All repositories are available on GitHub under [https://github.com/federated-par
 
 ## 2. Installation Guide
 
-<<<<<<< HEAD
 1. [Download](https://partea.zbh.uni-hamburg.de/how-to#participants) the client software.
    1. [macOS](https://partea.zbh.uni-hamburg.de/assets/executables/partea_macos.zip)
    2. [ubuntu](https://partea.zbh.uni-hamburg.de/assets/executables/partea_ubuntu.tar.gz)
