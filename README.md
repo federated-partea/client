@@ -9,9 +9,9 @@ All repositories are available on GitHub under [https://github.com/federated-par
 
 ## 2. Installation Guide
 
-1. [Download](https://exbio.wzw.tum.de/partea/how-to#participants) the client software.
-   1. [macOS](https://exbio.wzw.tum.de/partea/assets/executables/partea_macos.zip)
-   2. [ubuntu](https://exbio.wzw.tum.de/partea/assets/executables/partea_ubuntu.tar.gz)
+1. [Download](https://partea.zbh.uni-hamburg.de/how-to#participants) the client software.
+   1. [macOS](https://partea.zbh.uni-hamburg.de/assets/executables/partea_macos.zip)
+   2. [ubuntu](https://partea.zbh.uni-hamburg.de/assets/executables/partea_ubuntu.tar.gz)
 2. **Unzip** the archive.
 3. If you do not have Google Chrome installed already, please [Download](https://www.google.com/chrome/) and install it.
 4. Run the executable file
@@ -23,13 +23,13 @@ All repositories are available on GitHub under [https://github.com/federated-par
 
 ## 3. Demo
 
-A [getting started tutorial](https://exbio.wzw.tum.de/partea/how-to) is available on the Partea website.
+A [getting started tutorial](https://partea.zbh.uni-hamburg.de/how-to) is available on the Partea website.
 
 ### A. Study coordinator initializes the project
 
-1. [Sign up](https://exbio.wzw.tum.de/partea/account) for an account.
+1. [Sign up](https://partea.zbh.uni-hamburg.de/account) for an account.
 2. [Sign in] with the account, if not done automatically after sign up.
-3. [Create](https://exbio.wzw.tum.de/partea/projects) a new project by clicking on the **Projects** tab, enter a project
+3. [Create](https://partea.zbh.uni-hamburg.de/projects) a new project by clicking on the **Projects** tab, enter a project
    name and click **Create**.
 4. Keep the default parameters to execute a non-parametric time-to-event analysis for survival function and cumulative
    hazard rate estimation. **Initialize** the project by clikcing the corresponding button.
@@ -45,7 +45,7 @@ A [getting started tutorial](https://exbio.wzw.tum.de/partea/how-to) is availabl
     2. Event Column: arrest
     3. Seperator: comma
 3. After that, we choose the dataset from our directory. You can download the sample data
-   archive [here](https://exbio.wzw.tum.de/partea/assets/sample_data.zip). For simplicity, we will run the analysis here
+   archive [here](https://partea.zbh.uni-hamburg.de/assets/sample_data.zip). For simplicity, we will run the analysis here
    with only one collaborator, so we choose the dataset `rossi_complete.csv`, after unzipping the sample data archive.
 4. Click "Run" to start the analysis. Now you wait, until the study coordinator starts the study. The client application
    should indicate this with the Message: "Waiting for other participants and project start."
