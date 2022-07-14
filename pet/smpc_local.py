@@ -27,7 +27,7 @@ def create_shards(params: float or int or dict or list, n: int) -> list:
     elif type(params) == float or int:
         rs = int(0)
         for i in range(n - 1):
-            r = np.random.randint(1, 100000000000000)
+            r = np.random.randint(1, 100000000000000, dtype=np.int64)
             ps.append(r)
             rs += r
 
