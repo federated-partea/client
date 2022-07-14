@@ -45,11 +45,8 @@ jobs:
     
     - uses: actions/checkout@v3
     
-    - name: Install dependencies 2
-      run: sudo apt --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl
-      
-    - name: Install dependencies 2
-      run: sudo apt jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+    - name: Install dependencies
+      run: sudo apt-get install cmake libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk libharfbuzz-dev libfribidi-dev libxcb1-dev
     
     - name: Package Linux Application
       uses: JackMcKew/pyinstaller-action-linux@main
