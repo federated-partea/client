@@ -41,10 +41,11 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon='icon.jpg',
 )
 app = BUNDLE(
     exe,
     name='partea.app',
-    icon=None,
+    icon='icon.jpg',
     bundle_identifier=None,
 )
