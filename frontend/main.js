@@ -3,7 +3,7 @@ async function joinProject() {
     let password = document.getElementById("password").value;
     let projectToken = document.getElementById("projectToken").value;
     let infoText = document.getElementById("login_info")
-    window.localStorage.setItem('serverUrl', "https://partea-api.zbh.uni-hamburg.de/client")
+    window.localStorage.setItem('serverUrl', "https://apps.cosy.bio/api-partea/client")
 
     let response = await eel.join_project(username, password, projectToken, window.localStorage.getItem('serverUrl'))();
 
